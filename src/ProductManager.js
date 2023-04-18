@@ -13,6 +13,7 @@ class ProductManager {
 
         let id = products.length + 1;
 
+
         let existeElProducto = false;
 
         products.forEach(element => {
@@ -24,9 +25,9 @@ class ProductManager {
         
             objeto.id = id;
             
-            !existeElProducto ? products.push(objeto) : console.error(`El producto con código ${objeto.code} ya existe`);
+            !existeElProducto ? products.push(objeto) : existeElProducto = true;
 
-            console.log(products);
+            // console.log(existeElProducto);
 
             let json = JSON.stringify(products)
 
