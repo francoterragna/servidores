@@ -6,43 +6,53 @@ const router = express.Router();
 // = GET
 
 router.get('/:pid', async (req,res) => {
+try {
     let text = req.params.pid;
     let id = parseInt(text)
-
+    
     let texto = await fs.readFile('../productos.json', 'utf8');
     let products = JSON.parse(texto);
     let productoEncontrado = products.find( producto => producto.id === id );
-
+    
     if(!productoEncontrado){
         return res.status(400).send({msg:"No se encontró ningun producto con ese id"})
     } else {
         res.status(200).send({msg:"Success",product: productoEncontrado});
     }
+} catch (error) {
+    res.status(400).send(error)
+}
+
 });
 
 
 router.get('/', async (req,res) => {
-    let limit = req.query.limit;
-    let texto = await fs.readFile('../productos.json', 'utf-8');
-    let totalProductos = JSON.parse(texto);
-    if(limit !== undefined){
-        const nuevoArray = [];
-        if(limit > totalProductos.length){
-            limit = totalProductos.length
+    try {
+        let limit = req.query.limit;
+        let texto = await fs.readFile('../productos.json', 'utf-8');
+        let totalProductos = JSON.parse(texto);
+        if(limit !== undefined){
+            const nuevoArray = [];
+            if(limit > totalProductos.length){
+                limit = totalProductos.length
+            }
+            for (let i = 0; i < limit; i++) {
+                nuevoArray.push(totalProductos[i]) 
+            }
+            res.status(200).send(nuevoArray)
+        }else {
+            res.status(200).send(totalProductos);
         }
-        for (let i = 0; i < limit; i++) {
-            nuevoArray.push(totalProductos[i]) 
-        }
-        res.status(200).send(nuevoArray)
-    }else {
-        res.status(200).send(totalProductos);
+    } catch (error) {
+        res.status(400).send(error)
     }
 })
 
 // = POST
 
 router.post('/', async (req,res) => {
-    let texto = await fs.readFile('../productos.json', 'utf-8');
+    try {
+        let texto = await fs.readFile('../productos.json', 'utf-8');
     let products = JSON.parse(texto);
     let id = products.length + 1;
 
@@ -83,13 +93,17 @@ router.post('/', async (req,res) => {
         await fs.writeFile('../productos.json', json);
         return res.status(200).send({msg: "Se agregó el producto con exito", products: products})
     }
+    } catch (error) {
+        res.status(400).send(error)
+    }
 })
 
 
 // = PUT
 
 router.put('/:pid', async (req,res) => {
-    const {title, description, code, price, status = true, stock, category, thumbnails} = req.body;
+    try {
+        const {title, description, code, price, status = true, stock, category, thumbnails} = req.body;
     let texto = await fs.readFile('../productos.json', 'utf-8');
     let products = JSON.parse(texto);
     let id = parseInt(req.params.pid)
@@ -120,13 +134,17 @@ router.put('/:pid', async (req,res) => {
 
         return res.status(200).send({msg: `Se ha actualizado el producto con id ${id}`, updatedProduct: productoEncontrado})
     }
+    } catch (error) {
+        res.status(400).send(error)
+    }
 })
 
 // = DELETE
 
 
 router.delete('/:pid', async (req,res) => {
-    let texto = await fs.readFile('../productos.json', 'utf-8');
+    try {
+        let texto = await fs.readFile('../productos.json', 'utf-8');
 
     let products = JSON.parse(texto);
     
@@ -142,6 +160,9 @@ router.delete('/:pid', async (req,res) => {
         let json = JSON.stringify(products);
         await fs.writeFile('../productos.json', json);
         res.status(200).send({msg: `Producto con id ${productoEncontrado.id} eliminado`})
+    }
+    } catch (error) {
+        res.status(400).send(error)
     }
 })
 

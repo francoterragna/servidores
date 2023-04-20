@@ -1,1 +1,187 @@
-[{"title":"Camara de fotos","description":"Canon","price":2000,"thumbnail":"vacio","code":"qwerty","stock":100,"id":5},{"title":"Colchon","description":"Cannon","price":20000,"thumbnail":"vacio","code":"jifdsoj1","stock":100,"id":6},{"title":"Gorra","description":"Nike","price":20,"thumbnail":"vacio","code":"njpamx","stock":56,"id":7},{"title":"medias","description":"adidas","price":15,"thumbnail":"vacio","code":"ppolk","stock":562,"id":8},{"title":"monitor","description":"samsung","price":15000,"thumbnail":"vacio","code":"qwsdfg","stock":12,"id":9},{"title":"pintura","description":"negra","price":150,"thumbnail":"vacio","code":"vbnmh","stock":11,"id":10},{"title":"pintura","description":"blanca","price":150,"thumbnail":"vacio","code":"vbnmhwh","stock":11,"id":11},{"title":"pintura","description":"roja","price":150,"thumbnail":"vacio","code":"vbnmred","stock":11,"id":12},{"title":"pintura","description":"azul","price":150,"thumbnail":"vacio","code":"vbnmblue","stock":11,"id":13},{"title":"Celular","description":"Iphone","code":"aqwerty789","price":200000,"status":true,"stock":50,"category":"phone","thumbnail":[],"id":14},{"title":"Celular","description":"Iphone","code":"aqwerty78569","price":200000,"stock":50,"category":"phone","thumbnail":[],"id":15},{"title":"Celular","description":"Iphone","code":"aqwertbghjkghky78569","price":200000,"stock":50,"category":"phone","thumbnail":[],"id":16},{"title":"Celular","description":"Iphone","code":"aqwertb","price":200000,"stock":50,"category":"phone","thumbnail":[],"id":17},{"title":"Celular","description":"Iphone","code":"sanlorenzo","price":200000,"stock":50,"category":"phone","thumbnail":[],"id":18},{"title":"Celular","description":"Iphone","code":"sanlorenzo1","price":200000,"stock":50,"category":"phone","thumbnail":["../public/images/products"],"id":19},{"id":20,"title":"Celular","description":"Iphone","code":"sanlorenzfdso1","price":200000,"stock":50,"category":"phone"},{"id":21,"title":"Celular","description":"Iphone","code":"holahola","price":200000,"stock":50,"category":"phone"},{"id":22,"title":"Celular","description":"samsung","code":"hola1","price":200000,"stock":50,"status":true,"category":"phone"},{"id":23,"title":"Celular","description":"samsung","code":"hola2","price":200000,"stock":50,"status":true,"category":"phone","thumbnails":["../public/images/products"]}]
+[
+    {
+        "title": "Camara de fotos",
+        "description": "Canon",
+        "price": 2000,
+        "thumbnail": "vacio",
+        "code": "qwerty",
+        "stock": 100,
+        "id": 5
+    },
+    {
+        "title": "Colchon",
+        "description": "Cannon",
+        "price": 20000,
+        "thumbnail": "vacio",
+        "code": "jifdsoj1",
+        "stock": 100,
+        "id": 6
+    },
+    {
+        "title": "Gorra",
+        "description": "Nike",
+        "price": 20,
+        "thumbnail": "vacio",
+        "code": "njpamx",
+        "stock": 56,
+        "id": 7
+    },
+    {
+        "title": "medias",
+        "description": "adidas",
+        "price": 15,
+        "thumbnail": "vacio",
+        "code": "ppolk",
+        "stock": 562,
+        "id": 8
+    },
+    {
+        "title": "monitor",
+        "description": "samsung",
+        "price": 15000,
+        "thumbnail": "vacio",
+        "code": "qwsdfg",
+        "stock": 12,
+        "id": 9
+    },
+    {
+        "title": "pintura",
+        "description": "negra",
+        "price": 150,
+        "thumbnail": "vacio",
+        "code": "vbnmh",
+        "stock": 11,
+        "id": 10
+    },
+    {
+        "title": "pintura",
+        "description": "blanca",
+        "price": 150,
+        "thumbnail": "vacio",
+        "code": "vbnmhwh",
+        "stock": 11,
+        "id": 11
+    },
+    {
+        "title": "pintura",
+        "description": "roja",
+        "price": 150,
+        "thumbnail": "vacio",
+        "code": "vbnmred",
+        "stock": 11,
+        "id": 12
+    },
+    {
+        "title": "pintura",
+        "description": "azul",
+        "price": 150,
+        "thumbnail": "vacio",
+        "code": "vbnmblue",
+        "stock": 11,
+        "id": 13
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "aqwerty789",
+        "price": 200000,
+        "status": true,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [],
+        "id": 14
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "aqwerty78569",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [],
+        "id": 15
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "aqwertbghjkghky78569",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [],
+        "id": 16
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "aqwertb",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [],
+        "id": 17
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "sanlorenzo",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [],
+        "id": 18
+    },
+    {
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "sanlorenzo1",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone",
+        "thumbnail": [
+            "../public/images/products"
+        ],
+        "id": 19
+    },
+    {
+        "id": 20,
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "sanlorenzfdso1",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone"
+    },
+    {
+        "id": 21,
+        "title": "Celular",
+        "description": "Iphone",
+        "code": "holahola",
+        "price": 200000,
+        "stock": 50,
+        "category": "phone"
+    },
+    {
+        "id": 22,
+        "title": "Celular",
+        "description": "samsung",
+        "code": "hola1",
+        "price": 200000,
+        "stock": 50,
+        "status": true,
+        "category": "phone"
+    },
+    {
+        "id": 23,
+        "title": "Celular",
+        "description": "samsung",
+        "code": "hola2",
+        "price": 200000,
+        "stock": 50,
+        "status": true,
+        "category": "phone",
+        "thumbnails": [
+            "../public/images/products"
+        ]
+    }
+]
