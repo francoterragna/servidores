@@ -1,9 +1,13 @@
 const express = require('express');
-const fs = require('fs').promises
-
+const fs = require('fs').promises;
 const router = express.Router();
 
+
+
 // = GET
+router.get('/realtimeproducts', (req,res) => {
+    res.render('realTimeProducts');
+})
 
 router.get('/:pid', async (req,res) => {
 try {
@@ -26,6 +30,7 @@ try {
 });
 
 
+
 router.get('/', async (req,res) => {
     try {
         let limit = req.query.limit;
@@ -41,12 +46,15 @@ router.get('/', async (req,res) => {
             }
             res.status(200).send(nuevoArray)
         }else {
-            res.status(200).send(totalProductos);
+            // res.status(200).send(totalProductos);
+            console.log(totalProductos);
+            res.render('home', {products:totalProductos})
         }
     } catch (error) {
         res.status(400).send(error)
     }
 })
+
 
 // = POST
 
