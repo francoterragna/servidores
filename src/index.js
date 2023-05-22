@@ -12,29 +12,32 @@ const connectDB = async () => {
 
         const server = app.listen(PORT, () => {
             console.log(`http://${IP_SERVER}:${PORT}`)
-          })
-          const io = socketIO(server);
+        })
 
-          io.on('connection', (socket) => {
-            console.log('Nuevo usuario conectado');
-          
-            socket.on('chatMessage', async ({ username, message }) => {
-                console.log(`Mensaje recibido: ${message} (Usuario: ${username})`);
-              
-                const newMessage = new Message({
-                  username,
-                  message,
-                });
-                
-                io.emit('chatMessage', { username, message });
-                await newMessage.save();
-              });
-              
-          
-            socket.on('disconnect', () => {
-              console.log('Usuario desconectado');
+        const io = socketIO(server);
+
+        io.on('connection', (socket) => {
+        console.log('Nuevo usuario conectado');
+        
+        socket.on('chatMessage', async ({ username, message }) => {
+            console.log(`Mensaje recibido: ${message} (Usuario: ${username})`);
+            
+            //Creando coleccion para MongoDB
+            const newMessage = new Message({
+                username,
+                message,
             });
-          });
+            
+            io.emit('chatMessage', { username, message });
+            //Se envia el formato del mensaje hacia MongoDB
+            await newMessage.save();
+            });
+            
+        
+        socket.on('disconnect', () => {
+            console.log('Usuario desconectado');
+        });
+        });
     } catch(error) {
         console.log('Error al conectar con la base de datos', error);
     }
