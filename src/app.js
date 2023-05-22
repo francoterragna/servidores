@@ -1,10 +1,10 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 const fs = require('fs').promises;
-const { Server } = require('socket.io');
 
 const productsRouter = require('./routes/products');
 const cartsRouter = require('./routes/carts');
+const messageRouter = require('./routes/messages')
 
 const app = express();
 // const PORT = process.env.PORT || 8080;
@@ -20,5 +20,6 @@ app.set('view engine','handlebars');
 
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
+app.use('/api/messages', messageRouter);
 
 module.exports = app;

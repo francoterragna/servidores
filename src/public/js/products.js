@@ -1,17 +1,27 @@
 const socket = io();
 
-      // Escuchamos el evento de productos actualizados
-      socket.on('realTimeProducts', productos => {
-        actualizarProductos(productos);
-      });
+const messageInput = document.getElementById('messageInput');
+const sendButton = document.getElementById('sendButton');
+const usernameInput = document.getElementById('usernameInput');
+const messageList = document.getElementById('messageList');
+const h4 = document.createElement('h4');
 
-      // Función para actualizar la lista de productos
-      function actualizarProductos(productos) {
-        const productosList = document.querySelector('ul');
-        productosList.innerHTML = '';
-        productos.forEach(producto => {
-          const li = document.createElement('li');
-          li.textContent = `${producto.nombre} - ${producto.precio} EUR`;
-          productosList.appendChild(li);
-        });
-      }
+sendButton.addEventListener('click', (e) => {
+  const message = messageInput.value;
+  const username = usernameInput.value;
+  if (message.trim() !== '' && username.trim() !== '') {
+    socket.emit('chatMessage', { username, message });
+    messageInput.value = '';
+    h4.textContent = '';
+  }else{
+    e.preventDefault();
+    messageList.appendChild(h4)
+    h4.textContent = 'Debe completar los campos';
+  }
+});
+
+socket.on('chatMessage', ({ username, message }) => {
+  const li = document.createElement('li');
+  li.textContent = `${username}: ${message}`;
+  messageList.appendChild(li);
+});
