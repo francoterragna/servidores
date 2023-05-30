@@ -5,9 +5,7 @@ const Product = require('../dao/models/products')
 const createCart = async (req,res) => {
     //Crear carrito como un objeto con 2 atributos => {id: 1, products: []}
     try {
-
         const carrito = new Cart();
-
         const cartStored = await carrito.save();
 
         res.status(200).send({
